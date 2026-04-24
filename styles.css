@@ -335,6 +335,12 @@ p  { margin: 0; color: var(--muted); }
   gap: 14px;
   flex-wrap: wrap;
 }
+.hero__proof {
+  margin-top: 18px;
+  font-size: .88rem;
+  color: var(--muted-2);
+  letter-spacing: .04em;
+}
 .hero__stats {
   margin-top: 56px;
   display: grid;
@@ -352,6 +358,52 @@ p  { margin: 0; color: var(--muted); }
   font-weight: 700;
 }
 .hero__stats span { font-size: .82rem; color: var(--muted-2); letter-spacing: .08em; text-transform: uppercase; }
+
+/* =========================================================
+   TRUST STRIP
+   ========================================================= */
+.trust-strip {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+  background: rgba(255,255,255,.012);
+}
+.trust-strip .container {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.trust-strip__label {
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+  white-space: nowrap;
+}
+.trust-strip__list {
+  display: flex;
+  align-items: center;
+  gap: 28px 32px;
+  flex-wrap: wrap;
+}
+.trust-strip__list li {
+  font-family: var(--f-body);
+  font-size: .92rem;
+  color: var(--muted);
+  letter-spacing: .04em;
+  position: relative;
+}
+.trust-strip__list li + li::before {
+  content: "";
+  position: absolute;
+  left: -18px; top: 50%;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--line-strong);
+  transform: translateY(-50%);
+}
 
 /* =========================================================
    PANELS / LISTS (used in problem, positioning)
@@ -689,13 +741,30 @@ p  { margin: 0; color: var(--muted); }
 }
 .portfolio__links { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
 .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: .82rem;
   padding: 8px 14px;
   border-radius: 999px;
   border: 1px solid var(--line-strong);
   color: var(--muted);
+  transition: color var(--t-med) var(--ease), border-color var(--t-med) var(--ease), background var(--t-med) var(--ease);
 }
 .chip:hover { color: var(--gold); border-color: var(--gold); }
+.chip--cta {
+  color: var(--gold);
+  border-color: rgba(233,196,106,.45);
+  background: rgba(233,196,106,.06);
+  font-weight: 600;
+}
+.chip--cta:hover {
+  color: #111;
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.chip--cta span { transition: transform var(--t-fast) var(--ease); }
+.chip--cta:hover span { transform: translate(2px,-2px); }
 .portfolio__close {
   margin: 48px auto 0;
   text-align: center;
