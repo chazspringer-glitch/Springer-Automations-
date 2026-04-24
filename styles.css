@@ -1,0 +1,212 @@
+/* =========================================================
+   SPRINGER INDUSTRIES — Foundation
+   Design tokens, reset, typography, container, buttons
+   ========================================================= */
+
+:root {
+  /* Brand */
+  --black:        #000000;
+  --black-2:      #0a0a0a;
+  --ink:          #0e0e10;
+  --panel:        #111114;
+  --panel-2:      #15151a;
+  --line:         #1f1f25;
+  --line-strong:  #2a2a32;
+
+  --white:        #ffffff;
+  --text:         #e9e9ec;
+  --muted:        #a4a4ad;
+  --muted-2:      #74747d;
+
+  --gold:         #E9C46A;
+  --gold-2:       #F4D27A;
+  --gold-deep:    #B8860B;
+
+  --red:          #C8102E;
+  --red-2:        #E11A36;
+  --red-deep:     #8E0B20;
+
+  /* Typography */
+  --f-display: "Playfair Display", Georgia, serif;
+  --f-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Sizing & rhythm */
+  --container: 1200px;
+  --gutter:    24px;
+  --radius:    14px;
+  --radius-lg: 22px;
+
+  /* Motion */
+  --ease:      cubic-bezier(.2, .7, .2, 1);
+  --t-fast:    .18s;
+  --t-med:     .35s;
+  --t-slow:    .7s;
+
+  /* Shadows */
+  --shadow-1: 0 1px 0 rgba(255,255,255,.04) inset, 0 10px 30px rgba(0,0,0,.45);
+  --shadow-gold: 0 0 0 1px rgba(233,196,106,.25), 0 18px 60px rgba(184,134,11,.18);
+  --shadow-red:  0 12px 40px rgba(200,16,46,.35);
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; cursor: pointer; border: 0; background: transparent; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+input, textarea, select { font: inherit; color: inherit; }
+
+/* Body */
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgba(233,196,106,.06), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(200,16,46,.06), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--f-display);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0;
+}
+h1 { font-size: clamp(2.5rem, 5.6vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.05rem; font-family: var(--f-body); font-weight: 600; letter-spacing: .01em; }
+p  { margin: 0; color: var(--muted); }
+
+/* Accent text */
+.text--gold { color: var(--gold); }
+.text--red  { color: var(--red-2); }
+
+/* Layout */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding: clamp(72px, 10vw, 140px) 0;
+  position: relative;
+}
+
+.section__head {
+  max-width: 760px;
+  margin: 0 auto clamp(40px, 6vw, 72px);
+  text-align: center;
+}
+.section__head h2 { margin-top: 12px; }
+.section__lede { margin-top: 14px; color: var(--muted); }
+
+.kicker {
+  display: inline-block;
+  font-family: var(--f-body);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 6px 12px;
+  border: 1px solid rgba(233,196,106,.35);
+  border-radius: 999px;
+  background: rgba(233,196,106,.06);
+}
+
+.eyebrow {
+  font-family: var(--f-body);
+  text-transform: uppercase;
+  letter-spacing: .28em;
+  font-size: .72rem;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+/* Grids */
+.grid { display: grid; gap: 24px; }
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Buttons */
+.btn {
+  --bg: transparent;
+  --fg: var(--white);
+  --bd: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--bd);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .95rem;
+  letter-spacing: .01em;
+  transition:
+    transform var(--t-fast) var(--ease),
+    background var(--t-med) var(--ease),
+    color var(--t-med) var(--ease),
+    border-color var(--t-med) var(--ease),
+    box-shadow var(--t-med) var(--ease);
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn span { transition: transform var(--t-fast) var(--ease); }
+.btn:hover span { transform: translateX(3px); }
+
+.btn--red  { --bg: var(--red); --fg: #fff; box-shadow: var(--shadow-red); }
+.btn--red:hover  { --bg: var(--red-2); box-shadow: 0 16px 50px rgba(225,26,54,.45); }
+
+.btn--gold { --bg: var(--gold); --fg: #111; }
+.btn--gold:hover { --bg: var(--gold-2); }
+
+.btn--ghost {
+  --bg: transparent; --fg: var(--white); --bd: rgba(255,255,255,.18);
+}
+.btn--ghost:hover { --bd: var(--gold); --fg: var(--gold); }
+
+.btn--link {
+  padding: 14px 6px;
+  color: var(--muted);
+  border-radius: 0;
+  border-bottom: 1px solid transparent;
+}
+.btn--link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+.btn--lg    { padding: 18px 28px; font-size: 1rem; }
+.btn--block { display: flex; width: 100%; justify-content: center; }
+
+/* Reveal animation utility (driven by JS) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--t-slow) var(--ease),
+    transform var(--t-slow) var(--ease);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
