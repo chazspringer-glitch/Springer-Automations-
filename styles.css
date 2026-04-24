@@ -924,6 +924,7 @@ p  { margin: 0; color: var(--muted); }
   .steps { grid-template-columns: 1fr; }
   .steps::before { display: none; }
   .story { grid-template-columns: 1fr; gap: 36px; }
+  .story__card { aspect-ratio: 16 / 9; max-width: 520px; }
   .contact { grid-template-columns: 1fr; gap: 36px; }
   .portfolio__item { grid-template-columns: 1fr; gap: 16px; }
   .nav__links { display: none; }
@@ -942,4 +943,5 @@ p  { margin: 0; color: var(--muted); }
   .footer__nav { justify-content: flex-start; }
   .panel, .card, .price-card, .form { padding: 24px; }
   .portfolio__item { padding: 24px; }
+  .story__visual { display: none; }
 }
