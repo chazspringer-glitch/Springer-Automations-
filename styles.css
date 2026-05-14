@@ -704,14 +704,12 @@ p  { margin: 0; color: var(--muted); }
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 36px;
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 32px;
-  align-items: start;
   transition: border-color var(--t-med) var(--ease);
 }
 .portfolio__item:hover { border-color: rgba(233,196,106,.4); }
 .portfolio__tag {
+  display: inline-flex;
+  margin-bottom: 18px;
   font-family: var(--f-body);
   font-size: .72rem;
   letter-spacing: .22em;
@@ -721,9 +719,8 @@ p  { margin: 0; color: var(--muted); }
   border: 1px solid rgba(233,196,106,.3);
   border-radius: 999px;
   background: rgba(233,196,106,.05);
-  align-self: start;
-  justify-self: start;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 100%;
 }
 .portfolio__item h3 { margin-bottom: 10px; font-size: 1.5rem; }
 .portfolio__item p { color: var(--muted); font-size: 1rem; max-width: 720px; }
@@ -926,7 +923,7 @@ p  { margin: 0; color: var(--muted); }
   .story { grid-template-columns: 1fr; gap: 36px; }
   .story__card { aspect-ratio: 16 / 9; max-width: 520px; }
   .contact { grid-template-columns: 1fr; gap: 36px; }
-  .portfolio__item { grid-template-columns: 1fr; gap: 16px; }
+  .portfolio__item { padding: 28px; }
   .nav__links { display: none; }
 }
 
